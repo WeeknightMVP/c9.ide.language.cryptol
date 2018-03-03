@@ -16,10 +16,10 @@ However, this experimental plugin has not yet been published to a CDN, and the p
 built via `c9 build` cannot currently be loaded into the initialization script.  On
 legacy Cloud9, the `package.json` can be loaded directly:
 
-  1. Upload this top-level `/cryptol` plugin folder into `~/.c9/plugins`.
+  1. Upload all files into `~/.c9/plugins/c9.ide.language.cryptol/`.
 
-  2. Add `package.json` to the arguments of `services.pluginManager.loadPackage`
-     in the initialization script:
+  2. Add `package.json` to the arguments of
+     `services.pluginManager.loadPackage` in the initialization script:
 
      ```JavaScript
        services.pluginManager.loadPackage([
