@@ -1,19 +1,20 @@
 # c9.ide.language.cryptol
 
-This is an experimental [Cloud9 IDE](https://c9.io) plugin for 
+This is an experimental [Cloud9 IDE](https://c9.io) plugin for
 [Cryptol](https://cryptol.net), a domain-specific language for cryptography.
 
 ## Prerequisites
 
-This plugin works with the [legacy](https://c9.io) or
+This plugin should work with the [legacy](https://c9.io) or
 [AWS](https://aws.amazon.com/cloud9) Cloud9 IDE.
 
 ## Installation
 
 Instructions for loading Cloud9 plugins are provided in [this Cloud9 community
 post](https://community.c9.io/t/distributing-and-installing-custom-cloud9-plugins/15168).
-As this experimental plugin has not yet been published to a CDN, it can be
-installed locally:
+However, this experimental plugin has not yet been published to a CDN, and the package
+built via `c9 build` cannot currently be loaded into the initialization script.  On
+legacy Cloud9, the `package.json` can be loaded directly:
 
   1. Upload this top-level `/cryptol` plugin folder into `~/.c9/plugins`.
 
@@ -22,7 +23,7 @@ installed locally:
 
      ```JavaScript
        services.pluginManager.loadPackage([
-         "~/.c9/plugins/cryptol/package.json",
+         "~/.c9/plugins/c9.ide.language.cryptol/package.json",
          // ...
        ]);
      ```
@@ -41,11 +42,12 @@ This plugin provides the following features:
 
 ### Syntax Highlighting
 
-This plugin assigns different types to various Cryptol tokens (e.g. keywords,
-numerics, operators, strings, Prelude symbols, user-defined symbols), which
-the Cloud9 editor highlights with different colors according to the current
-[theme](https://cloud9-sdk.readme.io/docs/themes). Types are somewhat consistent
-with [TextMate language grammars](https://manual.macromates.com/en/language_grammars).
+`c9.ide.language.cryptol` assigns different types to various Cryptol tokens
+(e.g. keywords, numerics, operators, strings, Prelude symbols, user-defined
+symbols), which the Cloud9 editor highlights with different colors according to
+the current [theme](https://cloud9-sdk.readme.io/docs/themes). Types are
+somewhat consistent with
+[TextMate language grammars](https://manual.macromates.com/en/language_grammars).
 
 Syntax highlighting is automatically triggered when opening a Cryptol module
 (`.cry`) or batch file (`.icry`). To apply Cryptol highlighting to a file with
@@ -53,17 +55,17 @@ another extension, invoke the `View > Syntax > Cryptol` menu sequence.
 
 ### Runners
 
-This plugin introduces run configurations for Cryptol modules (`.cry`) and batch
-files (`.icry`), which can be launched automatically by clicking the `Run`
-button, or explicitly via the `Run > Run With > Cryptol.run` (or
-`Cryptol_interactive.run`) menu sequence. Nested modules require changing the
-current working directory of the runner to the module's root folder, e.g. via
-the `CWD` tab in the launched terminal pane or a custom
+`c9.ide.language.cryptol` introduces run configurations for Cryptol modules
+(`.cry`) and batch files (`.icry`), which can be launched automatically by
+clicking the `Run` button, or explicitly via the `Run > Run With > Cryptol.run`
+(or `Cryptol_interactive.run`) menu sequence. Nested modules require changing
+the current working directory of the runner to the module's root folder, e.g.
+via the `CWD` tab in the launched terminal pane or a custom
 [run configuration](https://docs.c9.io/docs/running-and-debugging-code).
 
 ### Outline
 
-This plugin assigns Cryptol tokens to Cloud9 outline types as follows:
+`c9.ide.language.cryptol` assigns Cryptol tokens to Cloud9 outline types:
   * module -> package
   * import -> package
   * type (constraint) -> property
@@ -77,24 +79,24 @@ in the navigation menu to the right.
 
 ### Snippets
 
-This plugin supports autocompletion of named code snippets, which can be
-displayed via the configured key sequence for autocompletion (typically
+`c9.ide.language.cryptol` supports autocompletion of named code snippets, which
+can be displayed via the configured key sequence for autocompletion (typically
 `Ctrl-Space`).  For example, the user can type `if<Ctrl-Space>` to insert an
 if-then-else-with-multiway snippet.  Snippets are filtered by prefix but not
 by validity.
 
 ### Templates
 
-The plugin includes very basic templates for new Cryptol modules or interactive
-scripts, which can be created via the `File > New from template > Cryptol module`
-(or `Cryptol script`) menu sequence.
+`c9.ide.language.cryptol` includes very basic templates for new Cryptol modules
+or interactive scripts, which can be created via the
+`File > New from template > Cryptol module` (or `Cryptol script`) menu sequence.
 
 ## Tests
 
-This plugin does not have any automated tests...yet. It has been used with a
-variety of examples and test cases from the author as well as those included in
-the [Cryptol](https://github.com/GaloisInc/cryptol) repository. In most cases,
-it behaves helpfully, if not always *correctly*.
+`c9.ide.language.cryptol` does not have any automated tests...yet. It has been
+used with a variety of examples and test cases from the author as well as those
+included in the [Cryptol](https://github.com/GaloisInc/cryptol) repository. In
+most cases, it behaves helpfully, if not always *correctly*.
 
 ## Built With
 
