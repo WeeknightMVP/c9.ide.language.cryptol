@@ -1,0 +1,15 @@
+{
+    languages: ["cry"],
+    extensions: ["cry"],
+
+    guess_fargs: false,
+    extract_docs: true,
+
+    tags: [
+        { regex: /(?:^|\n)\s*module\s+([A-Za-z_][A-Za-z0-9_']*(?:::[A-Za-z_][A-Za-z0-9_']*)*)/g, kind: "package" },
+        { regex: /(?:^|\n)\s*import\s+(`?[A-Za-z_][A-Za-z0-9_']*(?:::[A-Za-z_][A-Za-z0-9_']*)*)/g, kind: "package" },
+        { regex: /(?:^|\n)\s*(?:new)?type\s+((?!constraint)[A-Za-z_][A-Za-z0-9_']*)/g, kind: "property" },
+        { regex: /(?:^|\n)\s*([A-Za-z_][A-Za-z0-9_']*|\([~!#$\^&*?+:\-.=<\/>\\|]+\))\s*:(?!:)/g, kind: "method" },
+        { regex: /(?:^|\n)\s*(?:property\s+)?((?!(?:new)?type)[A-Za-z_][A-Za-z0-9_']*|\([~!#$\^&*?+:\-.=<\/>\\|]+\)).*=(?![>=])/g, kind: "method2" }
+    ]
+}

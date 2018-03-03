@@ -1,0 +1,8 @@
+{
+    "cmd" : ["cryptol", "$file", "$args"],
+    "info" : "$file loaded",
+    "env" : {
+        "PATH": "$project_path/cryptol/bin:$project_path/z3/bin"
+    },
+    "selector" : "source.cry"
+}

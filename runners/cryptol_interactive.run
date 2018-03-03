@@ -1,0 +1,8 @@
+{
+    "cmd" : ["cryptol", "-b", "$file", "$args"],
+    "info" : "$file batch script executed",
+    "env" : {
+        "PATH": "$project_path/cryptol/bin:$project_path/z3/bin"
+    },
+    "selector" : "source.icry"
+}

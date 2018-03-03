@@ -1,0 +1,60 @@
+# scope: cryptol
+
+snippet function
+	${1:fn} :
+	    {${2:type_parameters}}
+	    (${3:type_constraints}) =>
+	    (${4:input_type} -> ${5:output_type})
+	$1 ${6:input} = 
+	    ${0:output}
+snippet if
+	if ${1:pred1} then ${2:val1}
+	 | ${3:pred2} then ${4:val2}
+	else ${0:0x0}
+snippet \
+	\\${1:params} -> ${0:expr}
+snippet import
+	import ${0:Name}
+snippet import_as
+	import ${1:Name} as ${0:Alias}
+snippet import_as_hiding
+	import ${1:Name} as ${2:Alias} hiding (${3:symbols})
+snippet import_as_list
+	import ${1:Name} as ${2:Alias}(${0:symbols})
+snippet import_hiding
+	import ${1:Name} hiding (${0:symbols})
+snippet import_list
+	import ${1:Name}(${0:symbols})
+snippet module
+	module ${0:Name} where
+snippet named_module_instantiation
+	module ${1:Name} = ${0:Parent} where
+snippet record
+	{ ${1:k1} = ${2:v1}, 
+	  ${3:k2} = ${0:v2} }
+snippet sequence
+	[ ${1:v0}, ${0:v1} ]
+snippet sequence_comprehension
+	[ ${1:target}
+	| ${2:var} <- ${0:seq} ]
+snippet sequence_enumeration
+	[ ${0:initialValue} .. ]
+snippet sequence_infinite
+	[ ${0:initialValue} ... ]
+snippet sequence_infinite_step
+	[ ${1:initialValue}, ${0:nextValue} ... ]
+snippet sequence_interval
+	[ ${1:initialValue} .. ${0:finalValue} ]
+snippet sequence_step
+	[ ${1:initialValue}, ${0:nextValue} .. ]
+snippet sequence_step_interval
+	[ ${1:initialValue}, ${2:nextValue} .. ${0:finalValue} ]
+snippet tuple
+	( ${1:v0}, ${0:v1} )
+snippet type
+	type ${1:Name} ${2:vars} = ${0:Signature}
+snippet type_constraint
+	type constraint ${1:Name} ${2:vars} = (${0:constraints})
+snippet where
+	where 
+	  ${0:expr}

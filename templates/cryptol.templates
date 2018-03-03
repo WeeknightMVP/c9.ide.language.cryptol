@@ -1,0 +1,8 @@
+filename .cry
+section General
+caption Cryptol module
+    module MyModule where
+filename .icry
+section General
+caption Cryptol script
+    :l MyModule
